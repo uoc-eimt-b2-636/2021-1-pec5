@@ -1,0 +1,89 @@
+[
+    {
+        "id": "90451669.351d28",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b8055b7b.f74f48",
+        "type": "udp in",
+        "z": "90451669.351d28",
+        "name": "",
+        "iface": "",
+        "port": "12345",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "1288078c.a02188",
+                "2b58bf83.9a05c"
+            ]
+        ]
+    },
+    {
+        "id": "1288078c.a02188",
+        "type": "debug",
+        "z": "90451669.351d28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 660,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "2b58bf83.9a05c",
+        "type": "influxdb out",
+        "z": "90451669.351d28",
+        "influxdb": "96999184.4a4fa",
+        "name": "",
+        "measurement": "Temperature",
+        "precision": "",
+        "retentionPolicy": "",
+        "x": 730,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "9c6e453f.bedb68",
+        "type": "inject",
+        "z": "90451669.351d28",
+        "name": "",
+        "topic": "",
+        "payload": "21.0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "1288078c.a02188",
+                "2b58bf83.9a05c"
+            ]
+        ]
+    },
+    {
+        "id": "96999184.4a4fa",
+        "type": "influxdb",
+        "z": "",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "grafana",
+        "name": "",
+        "usetls": false,
+        "tls": ""
+    }
+]
